@@ -1,0 +1,857 @@
+/* =========================================================
+   COLLEGE ERP
+   STUDENT DASHBOARD
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f7f3ee;
+
+    color: #302820;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.dashboard-navbar {
+    height: 74px;
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5ddd4;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.dashboard-logo {
+    font-size: 23px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    color: #302820;
+}
+
+
+.dashboard-logo span {
+    color: #bf8440;
+}
+
+
+.dashboard-navbar nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+.dashboard-navbar nav a {
+    text-decoration: none;
+
+    color: #62584f;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+
+.dashboard-navbar nav a:hover {
+    color: #bf8440;
+}
+
+
+.dashboard-navbar .logout-btn {
+    background: #302820;
+
+    color: #ffffff;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+}
+
+
+.dashboard-navbar .logout-btn:hover {
+    background: #bf8440;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.dashboard-container {
+    width: 86%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 55px 0 70px;
+}
+
+
+/* =========================================================
+   WELCOME CARD
+   ========================================================= */
+
+.welcome-card {
+    background:
+        linear-gradient(
+            135deg,
+            #302820,
+            #45382d
+        );
+
+    color: white;
+
+    min-height: 250px;
+
+    border-radius: 22px;
+
+    padding: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    box-shadow:
+        0 18px 40px
+        rgba(48, 40, 32, 0.15);
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin-bottom: 60px;
+}
+
+
+.welcome-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    right: -120px;
+
+    top: -150px;
+
+    background: rgba(191, 132, 64, 0.18);
+}
+
+
+.welcome-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+
+.small-title {
+    display: block;
+
+    color: #d7a66b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+.welcome-content h1 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    margin-bottom: 15px;
+
+    color: #ffffff;
+}
+
+
+.welcome-content p {
+    color: #d5ccc3;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    max-width: 570px;
+}
+
+
+/* =========================================================
+   MINI PROFILE
+   ========================================================= */
+
+.student-profile-mini {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 210px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.09);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.profile-circle {
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #bf8440;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+.student-profile-mini strong {
+    display: block;
+
+    color: white;
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.student-profile-mini span {
+    color: #cfc3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.section-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.section-header h2 {
+    font-size: 28px;
+
+    color: #302820;
+
+    margin-top: 4px;
+}
+
+
+.section-header > p {
+    color: #8a7d70;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SERVICE GRID
+   ========================================================= */
+
+.services-section {
+    margin-bottom: 65px;
+}
+
+
+.service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.service-card {
+    background: #ffffff;
+
+    border: 1px solid #e5ddd4;
+
+    border-radius: 17px;
+
+    padding: 27px;
+
+    min-height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.service-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #d1a16e;
+
+    box-shadow:
+        0 18px 35px
+        rgba(55, 43, 32, 0.10);
+}
+
+
+/* =========================================================
+   SERVICE ICONS
+   ========================================================= */
+
+.service-icon {
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    font-size: 23px;
+
+    font-weight: 800;
+}
+
+
+.service-icon.attendance {
+    background: #eee9e2;
+}
+
+
+.service-icon.fees {
+    background: #f5eadb;
+
+    color: #aa7133;
+
+    font-size: 25px;
+}
+
+
+.service-icon.results {
+    background: #eee6dc;
+
+    color: #9a683b;
+}
+
+
+.service-icon.profile {
+    background: #e8e4df;
+
+    color: #6f645b;
+}
+
+
+/* =========================================================
+   SERVICE CARD CONTENT
+   ========================================================= */
+
+.service-card h3 {
+    color: #302820;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+
+.service-card p {
+    color: #817469;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+}
+
+
+.service-card a {
+    margin-top: auto;
+
+    padding-top: 22px;
+
+    color: #bf8440;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    transition: 0.25s ease;
+}
+
+
+.service-card a span {
+    font-size: 18px;
+
+    transition: 0.25s ease;
+}
+
+
+.service-card a:hover {
+    color: #8f5e2b;
+}
+
+
+.service-card a:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PROFILE SECTION
+   ========================================================= */
+
+.profile-section {
+    margin-bottom: 60px;
+}
+
+
+.profile-card {
+    background: #ffffff;
+
+    border: 1px solid #e5ddd4;
+
+    border-radius: 17px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    overflow: hidden;
+}
+
+
+.profile-item {
+    padding: 28px;
+
+    border-right: 1px solid #eee8e1;
+}
+
+
+.profile-item:last-child {
+    border-right: none;
+}
+
+
+.profile-item span {
+    display: block;
+
+    color: #8b7d71;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 9px;
+}
+
+
+.profile-item strong {
+    color: #302820;
+
+    font-size: 16px;
+}
+
+
+.profile-item .active {
+    color: #4f7e54;
+}
+
+
+/* =========================================================
+   NOTICE
+   ========================================================= */
+
+.notice-section {
+    margin-bottom: 20px;
+}
+
+
+.notice-box {
+    background: #ffffff;
+
+    border: 1px solid #e5ddd4;
+
+    border-radius: 17px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+.notice-icon {
+    flex-shrink: 0;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5eadb;
+
+    color: #bf8440;
+
+    font-weight: 800;
+
+    font-size: 20px;
+}
+
+
+.notice-box h3 {
+    color: #302820;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.notice-box p {
+    color: #817469;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+
+.notice-box a {
+    text-decoration: none;
+
+    color: #bf8440;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.notice-box a:hover {
+    color: #8f5e2b;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.dashboard-footer {
+    min-height: 75px;
+
+    padding: 0 7%;
+
+    background: #302820;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 13px;
+}
+
+
+.dashboard-footer div:last-child {
+    color: #c5b8ad;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .profile-card {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .profile-item:nth-child(2) {
+        border-right: none;
+    }
+
+
+    .profile-item:nth-child(1),
+    .profile-item:nth-child(2) {
+        border-bottom: 1px solid #eee8e1;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .dashboard-navbar {
+        height: auto;
+
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 16px;
+    }
+
+
+    .dashboard-navbar nav {
+        gap: 14px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .dashboard-navbar nav a {
+        font-size: 12px;
+    }
+
+
+    .dashboard-container {
+        width: 90%;
+
+        padding-top: 35px;
+    }
+
+
+    .welcome-card {
+        padding: 30px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        min-height: auto;
+    }
+
+
+    .welcome-content h1 {
+        font-size: 32px;
+    }
+
+
+    .student-profile-mini {
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+
+    .section-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-item {
+        border-right: none;
+
+        border-bottom: 1px solid #eee8e1;
+    }
+
+
+    .profile-item:last-child {
+        border-bottom: none;
+    }
+
+
+    .dashboard-footer {
+        padding: 22px 5%;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .welcome-content h1 {
+        font-size: 27px;
+    }
+
+
+    .dashboard-logo {
+        font-size: 20px;
+    }
+
+
+    .dashboard-navbar nav {
+        gap: 9px;
+    }
+
+
+    .dashboard-navbar .logout-btn {
+        padding: 8px 12px;
+    }
+
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | College ERP</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="dashboard-navbar">
+
+        <div class="dashboard-logo">
+            <span>College</span> ERP
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/attendance">Attendance</a>
+            <a href="/fees">Fees</a>
+            <a href="/results">Results</a>
+
+            <a href="/logout" class="logout-btn">
+                Logout
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="dashboard-container">
+
+
+        <!-- WELCOME -->
+        <section class="welcome-card">
+
+            <div class="welcome-content">
+
+                <span class="small-title">
+                    STUDENT PORTAL
+                </span>
+
+                <h1>
+                    Welcome, {{ username }}
+                </h1>
+
+                <p>
+                    Manage your academic information,
+                    attendance, fees and examination results
+                    from one place.
+                </p>
+
+            </div>
+
+
+            <div class="student-profile-mini">
+
+                <div class="profile-circle">
+                    {{ username[0] }}
+                </div>
+
+                <div>
+                    <strong>
+                        {{ username }}
+                    </strong>
+
+                    <span>
+                        {{ role }}
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK SERVICES -->
+        <section class="services-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="small-title">
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Academic Services
+                    </h2>
+                </div>
+
+                <p>
+                    Frequently used services
+                </p>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <!-- ATTENDANCE -->
+                <div class="service-card">
+
+                    <div class="service-icon attendance">
+                        📊
+                    </div>
+
+                    <h3>
+                        Attendance
+                    </h3>
+
+                    <p>
+                        Check your course-wise attendance
+                        and attendance percentage.
+                    </p>
+
+                    <a href="/attendance">
+                        View Attendance
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+
+                <!-- FEES -->
+                <div class="service-card">
+
+                    <div class="service-icon fees">
+                        ₹
+                    </div>
+
+                    <h3>
+                        Fee Details
+                    </h3>
+
+                    <p>
+                        Check your total, paid and
+                        pending fee details.
+                    </p>
+
+                    <a href="/fees">
+                        View Fees
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+
+                <!-- RESULTS -->
+                <div class="service-card">
+
+                    <div class="service-icon results">
+                        ★
+                    </div>
+
+                    <h3>
+                        Results
+                    </h3>
+
+                    <p>
+                        View your examination marks,
+                        grades and result status.
+                    </p>
+
+                    <a href="/results">
+                        View Results
+                        <span>→</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- PROFILE -->
+                <div class="service-card">
+
+                    <div class="service-icon profile">
+                        ●
+                    </div>
+
+                    <h3>
+                        Student Profile
+                    </h3>
+
+                    <p>
+                        View your student account
+                        and personal information.
+                    </p>
+
+                    <a href="#profile">
+                        View Profile
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+        <section class="profile-section" id="profile">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="small-title">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        Student Information
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-item">
+
+                    <span>
+                        Student ID
+                    </span>
+
+                    <strong>
+                        {{ session.get("student_id", "N/A") }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <strong>
+                        {{ username }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span>
+                        Role
+                    </span>
+
+                    <strong>
+                        {{ role }}
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span>
+                        Account
+                    </span>
+
+                    <strong class="active">
+                        ● Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTICE -->
+        <section class="notice-section">
+
+            <div class="notice-box">
+
+                <div class="notice-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <h3>
+                        Important Information
+                    </h3>
+
+                    <p>
+                        Check the home page regularly for
+                        the latest college notices,
+                        examination announcements and
+                        academic updates.
+                    </p>
+
+                    <a href="/#notices">
+                        View Latest Notices →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+
+        <div>
+            © 2026 College ERP System
+        </div>
+
+        <div>
+            Secure Academic Management Portal
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
